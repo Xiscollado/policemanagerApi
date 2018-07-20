@@ -21,7 +21,25 @@ class CrimeController extends Controller
         $crimeDetails->months = $request->months;
         $result = $crimeDetails->save() ? 'crime updated' : 'error updating crime';
         return $result;
+    }
 
+    public function createCrime(Request $request)
+    {
+        $crime = new Crime;
+        $crime->chapterId = $request->chapter;
+        $crime->title = $request->title;
+        $crime->description = $request->description;
+        $crime->fine = $request->fine;
+        $crime->months = $request->months;
+        $crime->save();
+        return json_encode(['result' => 'done']);
+    }
+
+    public function deleteCrime(Request $request, $id)
+    {
+        $crime = Crime::find($id);
+        $crime->delete();
+        return json_encode(['result' => 'done']);
     }
 
 }

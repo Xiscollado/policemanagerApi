@@ -32,6 +32,8 @@ Route::group(['middleware' => 'auth:api'], function() {
 
     // Get all crimes
     Route::get('/crimes', 'CrimeController@index');
+    Route::post('/crimes', 'CrimeController@createCrime');
     Route::post('/crimes/{id}', 'CrimeController@updateCrime');
+    Route::delete('/crimes/{id}', 'CrimeController@deleteCrime');
 
 });
