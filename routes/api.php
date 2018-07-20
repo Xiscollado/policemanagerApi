@@ -26,8 +26,12 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('/files/{id}/dangerous', 'FileController@updateDangerousState');
     Route::post('/files/{id}/underseek', 'FileController@updateUnderSeekState');
     Route::post('/files/{id}/image', 'FileController@updateImage');
+    Route::get('/user', function (Request $request) {
+        return $request->user()->load('admin');
+    });
 
     // Get all crimes
     Route::get('/crimes', 'CrimeController@index');
+    Route::post('/crimes/{id}', 'CrimeController@updateCrime');
 
 });
