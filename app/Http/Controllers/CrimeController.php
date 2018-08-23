@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Crime;
+use App\Title;
 use Illuminate\Http\Request;
 
 class CrimeController extends Controller

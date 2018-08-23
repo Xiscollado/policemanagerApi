@@ -35,5 +35,9 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('/crimes', 'CrimeController@createCrime');
     Route::post('/crimes/{id}', 'CrimeController@updateCrime');
     Route::delete('/crimes/{id}', 'CrimeController@deleteCrime');
+    Route::get('/titles', 'TitleController@index');
+    Route::post('/titles', 'TitleController@createTitle');
+    Route::post('/titles/{id}', 'TitleController@updateTitle');
+    Route::delete('/titles/{id}', 'TitleController@deleteTitle');
 
 });
